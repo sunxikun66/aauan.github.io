@@ -1,13 +1,13 @@
 
   .position{
     position: absolute;
-    left:8%;
-    top:2%;
+    left:12%;
+    top:3%;
 }
 .position2{
     position: absolute;
     left: 92%;
-    top: 2%;
+    top: 3%;
 }
     a{
         text-decoration: none;
