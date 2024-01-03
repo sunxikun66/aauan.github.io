@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>祈福台</title>
+  <style>
+    .container{
+        width: 100%;
+        text-align: center;
+        position: absolute;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    
+    .奖项 {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .奖项 li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>祈福台</h1>
+    <p>概率公示：</p>
+    <ul class="奖项">
+      <li>祈福武将：0.15%</li>
+      <li>武动乾坤：0.12%</li>
+      <li>神将：0.20%</li>
+      <li>限定皮肤：0.20%</li>
+      <li>珍贵秀：0.25%</li>
+      <li>节日皮肤：0.15%</li>
+      <li>品质皮肤：0.15%</li>
+      <li>皮肤：35%</li>
+      <li>武将：10%</li>
+      <li>其他：31.98%</li>
+      <li>同心结：21.8%</li>
+
+    </ul>
+    <button onclick="randomPrize(x)">祈福一次</button>
+    <button onclick="randomPrize1(x)">祈福十次</button>
+    <h2>您已获得的同心结：<span id="obtain">0</span></h2>
+    <h1>您已祈福：<span id="cost">0</span>次</h1>
+    <p>您已获得稀有道具：<span id="obtain1"></span></p>
+
+    </div>
+</body>
+<script>
+  let x=0;
+  let y=0;
+  let z="";
+  function randomPrize() {
+      var randomNumber = Math.random()*100; // 生成随机数
+      if (randomNumber<=0.15) {
+        alert("祈福武将");
+        z=z+"  祈福武将,";
+      }
+      if (randomNumber>0.15&&randomNumber<=0.27) {
+        alert("武动乾坤");
+        z=z+"  武动乾坤,"
+      }
+      if (randomNumber>0.27&&randomNumber<=0.47) {
+        alert("神将");
+        z=z+"  神将,"
+      }
+      if (randomNumber>0.47&&randomNumber<=0.67) {
+        alert("限定皮肤");
+        z=z+"  限定皮肤,"
+      }
+      if (randomNumber>0.67&&randomNumber<0.92) {
+        alert("珍贵秀");
+        z=z+"  珍贵秀,"
+      }
+      if (randomNumber>0.92&&randomNumber<=1.07) {
+        alert("节日皮肤");
+        z=z+"  节日皮肤,"
+      }
+      if (randomNumber>1.07&&randomNumber<=1.22) {
+        alert("品质皮肤");
+        z=z+"  品质皮肤,"
+      }
+      if (randomNumber>1.22&&randomNumber<=36.22) {
+        alert("皮肤");
+      }
+      if (randomNumber>36.22&&randomNumber<=46.22) {
+        alert("武将");
+        z=z+"  武将,"
+      }
+      if (randomNumber>46.22&&randomNumber<=78.2) {
+        alert("其他");
+      }
+      if (randomNumber>78.2&&randomNumber<=100) {
+        alert("同心结");
+        x=x+1;
+      }
+      y=y+1;
+      document.getElementById("obtain").innerHTML = x;
+      document.getElementById("cost").innerHTML = y;
+      document.getElementById("obtain1").innerHTML = z;
+    }
+      function randomPrize1() {
+        var jiangpin=["祈福武将"," 武动乾坤","神将","限定皮肤","珍贵秀","节日皮肤","品质皮肤","皮肤","武将","其他","同心结"];
+        var a=[];
+        for(var i=0;i<10;i++){
+            var randomNumber = Math.random()*100; // 生成随机数
+            if (randomNumber<=0.15) {
+                a[i]=jiangpin[0];
+                z=z+"  祈福武将,";
+            }
+            if (randomNumber>0.15&&randomNumber<=0.27) {
+                a[i]=jiangpin[1];
+                z=z+"  武动乾坤,";
+            }
+            if (randomNumber>0.27&&randomNumber<=0.47) {
+                a[i]=jiangpin[2];
+                z=z+"  神将,"
+            }
+            if (randomNumber>0.47&&randomNumber<=0.67) {
+                a[i]=jiangpin[3];
+                z=z+"  限定皮肤,"
+            }
+            if (randomNumber>0.67&&randomNumber<0.92) {
+                a[i]=jiangpin[4]
+                z=z+"  珍贵秀,"
+            }
+            if (randomNumber>0.92&&randomNumber<=1.07) {
+                a[i]=jiangpin[5];
+                z=z+"  节日皮肤,"
+            }
+            if (randomNumber>1.07&&randomNumber<=1.22) {
+                a[i]=jiangpin[6];
+                z=z+"  品质皮肤,"
+            }
+            if (randomNumber>1.22&&randomNumber<=36.22) {
+                a[i]=jiangpin[7];
+            }
+            if (randomNumber>36.22&&randomNumber<=46.22) {
+                a[i]=jiangpin[8];
+            }
+            if (randomNumber>46.22&&randomNumber<=78.2) {
+                a[i]=jiangpin[9];
+            }
+            if (randomNumber>78.2&&randomNumber<=100) {
+                a[i]=jiangpin[10];
+                x=x+1;
+            }
+    }
+    y=y+10;
+    document.getElementById("obtain").innerHTML = x;
+    document.getElementById("cost").innerHTML = y;
+    document.getElementById("obtain1").innerHTML = z;
+    alert(a[0]+"\n"+a[1]+"\n"+a[2]+"\n"+a[3]+"\n"+a[4]+"\n"+a[5]+"\n"+a[6]+"\n"+a[7]+"\n"+a[8]+"\n"+a[9]);
+}
+</script>
+</html>
