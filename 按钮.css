@@ -1,13 +1,13 @@
 
   .position{
     position: absolute;
-    left: 93%;
-    top: 5%;
+    left:96%;
+    top:3%;
 }
 .position2{
     position: absolute;
-    left: 7%;
-    top: 5%;
+    left: 4%;
+    top: 3%;
 }
     a{
         text-decoration: none;
@@ -17,11 +17,11 @@
 	top: 50%; /*距上部*/
 	left: 50%; 
 	transform: translate(-50%,-50%); /*移动，根据X,Y轴*/
-	width: 200px; /*宽*/
-	height: 60px; /*高*/
+	width: 100px; /*宽*/
+	height: 30px; /*高*/
 	text-align: center; /*字体水平居中*/
-	font-size: 22px; /*字体大小*/
-	line-height: 60px; /*行高*/
+	font-size: 12px; /*字体大小*/
+	line-height: 30px; /*行高*/
 	color: #fff;
 	text-transform: uppercase; /*字体大写*/
 	font-family: sans-serif; /*非衬线体*/
@@ -69,4 +69,4 @@
 	opacity: 1;
 	animation: animate 8s linear infinite; /*注意动画名称统一*/
   }
-  
+   
