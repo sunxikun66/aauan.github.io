@@ -1,195 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>抽奖活动</title>
-  <style>
-    .container{
-        width: 100%;
-        text-align: center;
-        position: absolute;
-    }
-    
-    h1 {
-      color: #333;
-    }
-    
-    
-    .奖项 {
-      list-style-type: none;
-      padding: 0;
-    }
-    
-    .奖项 li {
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>15周年终级特惠</h1>
-    <p>概率公示：</p>
-    <ul class="奖项">
-      <li>荒漠琉璃：0.15%</li>
-      <li>非觉醒版 王者之武：0.25%</li>
-      <li>雷神—15周年嘉年华皮肤：0.40%</li>
-      <li>M4A1—雷神：0.50%</li>
-      <li>修罗—15周年嘉年华皮肤：0.60%</li>
-      <li>沙鹰—修罗：0.70%</li>
-      <li>语音特效—生化（不可交易）：1.20%</li>
-      <li>语音特效机器人（不可交易）：1.20%</li>
-      <li>王者之石：4.9%</li>
-      <li>积分×100：0.1%</li>
-      <li>积分×12：5%</li>
-      <li>积分×6：15%</li>
-      <li>积分×4：30%</li>
-      <li>积分×3：40%</li>
-    </ul>
-    <button onclick="randomPrize(x)">抽奖一次</button>
-    <button onclick="randomPrize1(x)">抽奖十次</button>
-    <h2>您已获得的积分：<span id="obtain">0</span></h2>
-    <h1>您已消费：<span id="cost">0</span>元</h1>
-    <p>您已获得道具：<span id="obtain1"></span></p>
-
-    </div>
-</body>
-<script>
-  let x=0;
-  let y=0;
-  let z="";
-  function randomPrize() {
-      var randomNumber = Math.random()*100; // 生成随机数
-      if (randomNumber<=0.15) {
-        alert("荒漠琉璃");
-        z=z+"  荒漠琉璃,";
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>目录</title>
+    </head>
+    <style>
+      a{
+        font-size: 40px;
+        margin: auto;
+        color: red;
       }
-      if (randomNumber>0.15&&randomNumber<=0.4) {
-        alert("非觉醒版 王者之武");
-        z=z+"  非觉醒版 王者之武,"
-      }
-      if (randomNumber>0.4&&randomNumber<=0.8) {
-        alert("雷神—15周年嘉年华皮肤");
-        z=z+"  雷神—15周年嘉年华皮肤,"
-      }
-      if (randomNumber>0.8&&randomNumber<=1.3) {
-        alert("M4A1—雷神");
-        z=z+"  M4A1—雷神,"
-      }
-      if (randomNumber>1.3&&randomNumber<1.9) {
-        alert("修罗—15周年嘉年华皮肤");
-        z=z+"  修罗—15周年嘉年华皮肤,"
-      }
-      if (randomNumber>1.9&&randomNumber<=2.6) {
-        alert("沙鹰—修罗");
-        z=z+"  沙鹰—修罗,"
-      }
-      if (randomNumber>2.6&&randomNumber<=3.8) {
-        alert("语音特效—生化（不可交易）");
-        z=z+"  语音特效—生化（不可交易）,"
-      }
-      if (randomNumber>3.8&&randomNumber<=5.0) {
-        alert("语音特效—机器人（不可交易）");
-        z=z+"  语音特效—机器人（不可交易）,"
-      }
-      if (randomNumber>5.0&&randomNumber<=9.9) {
-        alert("王者之石");
-        z=z+"  王者之石,"
-      }
-      if (randomNumber>9.9&&randomNumber<=10) {
-        alert("积分×100");
-        x=x+100;
-      }
-      if (randomNumber>10&&randomNumber<=15) {
-        alert("积分×12");
-        x=x+12;
-      }
-      if (randomNumber>15&&randomNumber<=30) {
-        alert("积分×6");
-        x=x+6;
-      }
-      if (randomNumber>30&&randomNumber<=60) {
-        alert("积分×4");
-        x=x+4;
-      }
-      if (randomNumber>60&&randomNumber<=100) {
-        alert("积分×3");
-        x=x+3;
-      }
-      y=y+10;
-      document.getElementById("obtain").innerHTML = x;
-      document.getElementById("cost").innerHTML = y;
-      document.getElementById("obtain1").innerHTML = z;
-    }
-      function randomPrize1() {
-        var jiangpin=["荒漠琉璃","非觉醒版 王者之武","雷神—15周年嘉年华皮肤","M4A1—雷神","修罗—15周年嘉年华皮肤","沙鹰—修罗","语音特效—生化（不可交易）",
-        "语音特效—机器人（不可交易）","王者之石","积分×100","积分×12","积分×6","积分×4","积分×3"];
-        var a=[];
-        for(var i=0;i<10;i++){
-            var randomNumber = Math.random()*100; // 生成随机数
-            if (randomNumber<=0.15) {
-                a[i]=jiangpin[0];
-                z=z+"  荒漠琉璃,";
-            }
-            if (randomNumber>0.15&&randomNumber<=0.4) {
-                a[i]=jiangpin[1];
-                z=z+"  非觉醒版 王者之武,";
-            }
-            if (randomNumber>0.4&&randomNumber<=0.8) {
-                a[i]=jiangpin[2];
-                z=z+"  雷神—15周年嘉年华皮肤,"
-            }
-            if (randomNumber>0.8&&randomNumber<=1.3) {
-                a[i]=jiangpin[3];
-                z=z+"  M4A1—雷神,"
-            }
-            if (randomNumber>1.3&&randomNumber<1.9) {
-                a[i]=jiangpin[4]
-                z=z+"  修罗—15周年嘉年华皮肤,"
-            }
-            if (randomNumber>1.9&&randomNumber<=2.6) {
-                a[i]=jiangpin[5];
-                z=z+"  沙鹰—修罗,"
-            }
-            if (randomNumber>2.6&&randomNumber<=3.8) {
-                a[i]=jiangpin[6];
-                z=z+"  语音特效—机器人（不可交易）,"
-            }
-            if (randomNumber>3.8&&randomNumber<=5.0) {
-                a[i]=jiangpin[7];
-                z=z+"  语音特效—机器人（不可交易）,"
-            }
-            if (randomNumber>5.0&&randomNumber<=9.9) {
-                a[i]=jiangpin[8];
-                z=z+"  王者之石,"
-            }
-            if (randomNumber>9.9&&randomNumber<=10) {
-                a[i]=jiangpin[9];
-                x=x+100;
-            }
-            if (randomNumber>10&&randomNumber<=15) {
-                a[i]=jiangpin[10];
-                x=x+12;
-            }
-            if (randomNumber>15&&randomNumber<=30) {
-                a[i]=jiangpin[11];
-                x=x+6;
-            }
-            if (randomNumber>30&&randomNumber<=60) {
-                a[i]=jiangpin[12];
-                x=x+4;
-            }
-            if (randomNumber>60&&randomNumber<=100) {
-                a[i]=jiangpin[13];
-                x=x+3;
-            }
-    }
-    y=y+100;
-    document.getElementById("obtain").innerHTML = x;
-    document.getElementById("cost").innerHTML = y;
-    document.getElementById("obtain1").innerHTML = z;
-    alert(a[0]+"\n"+a[1]+"\n"+a[2]+"\n"+a[3]+"\n"+a[4]+"\n"+a[5]+"\n"+a[6]+"\n"+a[7]+"\n"+a[8]+"\n"+a[9]);
-}
-</script>
+    </style>
+    <body>
+      <div style="text-align: center;">
+        <a href="15周年抽奖.html">15周年终级特惠</a><br><br>
+        <a href="荣耀白鲨抽奖.html">荣耀白鲨抽奖</a><br><br>
+        <a href="祈福台.html">祈福台</a><br><br>
+      </div>
+    </body>
 </html>
