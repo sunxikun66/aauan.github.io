@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>隼击长空，幻神再临</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    button{
+      height: 40px;
+      width:80px;
+      color: red;
+    }
+    .奖项 {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .奖项 li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<link rel="stylesheet" href="按钮.css">
+<body>
+  <div class="container">
+    <h1>隼击长空，幻神再临</h1>
+    <p>概率公示：</p>
+    <ul class="奖项">
+      <li>王者风神：0.15%</li>
+      <li>隼：0.20%</li>
+      <li>Barrett——极光音效卡（不可交易）：0.30%</li>
+      <li>M200——幻神：0.20%</li>
+      <li>灵狐——职业经理：0.25%</li>
+      <li>炫金毁灭：0.40%</li>
+      <li>M4A1——青龙：0.50%</li>
+      <li>AK47——黑鲨：0.60%</li>
+      <li>M200——幻神紫橙光效（不可交易）：0.60%</li>
+      <li>天使灵狐玩偶：0.80%</li>
+      <li>王者之石：9.90%</li>
+      <li>积分×100：0.1%</li>
+      <li>积分×10：2.0%</li>
+      <li>积分×5：4.0%</li>
+      <li>积分×4：40%</li>
+      <li>积分×3：40%</li>
+    </ul>
+    <button onclick="randomPrize()">抽奖一次</button>
+    <button onclick="randomPrize1()">抽奖十次</button>
+    <h2>您已获得的积分：<span id="obtain">0</span></h2>
+    <h1>您已消费：<span id="cost">0</span>元</h1>
+    <p>您已获得道具：王者之石×<span id="obtain2">0</span><br>
+      <span id="obtain1"></span></p>
+  </div>
+  <div class="position">
+    <a href="index.html" class="q">返回首页</a>
+</div>
+</body>
+  <script>
+    let x=0;
+    let y=0;
+    let z="";
+    let m=0;
+    function randomPrize() {
+      var randomNumber = Math.random()*100; // 生成随机数
+      if (randomNumber<=0.15) {
+        alert("王者风神");
+        z=z+"王者风神,"
+      }
+      if (randomNumber>0.15&&randomNumber<=0.35) {
+        alert("隼");
+        z=z+"隼,"
+      }
+      if (randomNumber>0.35&&randomNumber<=0.65) {
+        alert("Barrett——极光音效卡（不可交易）");
+        z=z+"Barrett——极光音效卡（不可交易）,"
+      }
+      if (randomNumber>0.65&&randomNumber<=0.85) {
+        alert("M200——幻神");
+        z=z+"M200——幻神,"
+      }
+      if (randomNumber>0.85&&randomNumber<1.1) {
+        alert("灵狐——职业经理");
+        z=z+"灵狐——职业经理,"
+      }
+      if (randomNumber>1.1&&randomNumber<=1.5) {
+        alert("炫金毁灭");
+        z=z+"炫金毁灭,"
+      }
+      if (randomNumber>1.5&&randomNumber<=2.0) {
+        alert("M4A1——青龙");
+        z=z+"M4A1——青龙,"
+      }
+      if (randomNumber>2.0&&randomNumber<=2.6) {
+        alert("AK47——黑鲨");
+        z=z+"AK47——黑鲨,"
+      }
+      if (randomNumber>2.6&&randomNumber<=3.2) {
+        alert("M200——幻神紫橙光效（不可交易）");
+        z=z+"M200——幻神紫橙光效（不可交易）,"
+      }
+      if (randomNumber>3.2&&randomNumber<4.0) {
+        alert("天使灵狐玩偶");
+        z=z+"天使灵狐玩偶,"
+      }
+      if (randomNumber>4.0&&randomNumber<=13.9) {
+        alert("王者之石×1");
+        m=m+1;
+      }
+      if (randomNumber>13.9&&randomNumber<=14.0) {
+        alert("积分×100");
+        x=x+100;
+      }
+      if (randomNumber>14&&randomNumber<=16) {
+        alert("积分×10");
+        x=x+10;
+      }
+      if (randomNumber>16&&randomNumber<=20) {
+        alert("积分×5");
+        x=x+5;
+      }
+      if (randomNumber>20&&randomNumber<=60) {
+        alert("积分×4");
+        x=x+4;
+      }
+      if (randomNumber>60&&randomNumber<=100) {
+        alert("积分×3");
+        x=x+3;
+      }
+      y=y+10;
+      document.getElementById("obtain").innerHTML = x;
+      document.getElementById("cost").innerHTML = y;
+      document.getElementById("obtain1").innerHTML = z;
+    }
+      function randomPrize1() {
+        var jiangpin=["王者风神","隼","Barrett——极光音效卡（不可交易）","M200——幻神","灵狐——职业经理","炫金毁灭",
+        "M4A1——青龙","AK47——黑鲨","M200——幻神紫橙光效（不可交易）","天使灵狐玩偶","王者之石×1","积分×100","积分×10","积分×5","积分×4","积分×3"];
+        var a=[];
+        for(var i=0;i<10;i++){
+            var randomNumber = Math.random()*100; // 生成随机数
+            if (randomNumber<=0.15) {
+                a[i]=jiangpin[0];
+                z=z+"王者风神,"
+            }
+            if (randomNumber>0.15&&randomNumber<=0.35) {
+                a[i]=jiangpin[1];
+                z=z+"隼,"
+            }
+            if (randomNumber>0.35&&randomNumber<=0.65) {
+                a[i]=jiangpin[2];
+                z=z+"Barrett——极光音效卡（不可交易）,"
+            }
+            if (randomNumber>0.65&&randomNumber<=0.85) {
+                a[i]=jiangpin[3];
+                z=z+"M200——幻神,"
+            }
+            if (randomNumber>0.85&&randomNumber<1.1) {
+                a[i]=jiangpin[4];
+                z=z+"灵狐——职业经理,"
+            }
+            if (randomNumber>1.1&&randomNumber<=1.5) {
+                a[i]=jiangpin[5];
+                z=z+"炫金毁灭,"
+            }
+            if (randomNumber>1.5&&randomNumber<=2.0) {
+                a[i]=jiangpin[6];
+                z=z+"M4A1——青龙,"
+            }
+            if (randomNumber>2.0&&randomNumber<=2.6) {
+                a[i]=jiangpin[7];
+                z=z+"AK47——黑鲨,"
+            }
+            if (randomNumber>2.6&&randomNumber<=3.2) {
+                a[i]=jiangpin[8];
+                z=z+"M200——幻神紫橙光效（不可交易）,"
+            }
+            if (randomNumber>3.2&&randomNumber<=4.0) {
+                a[i]=jiangpin[9];
+                z=z+"天使灵狐玩偶,"
+            }
+            if (randomNumber>4.0&&randomNumber<=13.9) {
+                a[i]=jiangpin[10];
+                m=m+1;
+            }
+            if (randomNumber>13.9&&randomNumber<=14) {
+                a[i]=jiangpin[11];
+                x=x+100;
+            }
+            if (randomNumber>14&&randomNumber<=16) {
+                a[i]=jiangpin[12];
+                x=x+10;
+            }
+            if (randomNumber>16&&randomNumber<=20) {
+                a[i]=jiangpin[13];
+                x=x+5;
+            }
+            if (randomNumber>20&&randomNumber<=60) {
+                a[i]=jiangpin[14];
+                x=x+4;
+            }
+            if (randomNumber>60&&randomNumber<=100) {
+                a[i]=jiangpin[15];
+                x=x+3;
+            }
+    }
+    y=y+100;
+    document.getElementById("obtain").innerHTML = x;
+      document.getElementById("cost").innerHTML = y;
+      document.getElementById("obtain1").innerHTML = z;
+      document.getElementById("obtain2").innerHTML = m;
+    alert(a[0]+"\n"+a[1]+"\n"+a[2]+"\n"+a[3]+"\n"+a[4]+"\n"+a[5]+"\n"+a[6]+"\n"+a[7]+"\n"+a[8]+"\n"+a[9]+"\n");
+}
+  </script>
+</body>
+</html>
