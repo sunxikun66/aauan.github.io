@@ -1,26 +1,103 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>目录</title>
-    </head>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>今日份量子力学</title>
     <style>
-      a{
-        font-size: 40px;
-        margin: auto;
-        color: red;
-      }
+        body,html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+        background-image: url('png.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; /* 确保背景图片覆盖整个body，并且保持其宽高比 */
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        }
+        .container {
+      width: 40%;
+      margin: auto;
+      overflow: hidden;
+    }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .data-display {
+            background-color: #e9e9e9;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    /* 媒体查询，针对不同屏幕大小调整样式 */
+    @media (max-width: 768px) {
+        body{
+            width: 100%;
+            height: 50%;
+        }
+        .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    }
     </style>
-    <body>
-      <div style="text-align: center;">
-        <a href="15周年抽奖.html">15周年终级特惠</a><br><br>
-        <a href="荣耀白鲨抽奖.html">荣耀白鲨抽奖</a><br><br>
-        <a href="祈福台.html">祈福台</a><br><br>
-        <a href="宝箱.html">道聚城宝箱</a><br><br>
-          <a href="王者轮回.html">王者夺宝</a><br><br>
-          <a href="量子力学.html">量子力学</a><br><br>
-      </div>
-    </body>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>今日份量子力学</h1>
+        <button id="randomDataButton">点击抽取</button>
+        <div id="dataDisplay" class="data-display"></div>
+    </div>
+
+    <script>
+        const data = ['1-1','1-2','1-3','1-4','1-5','1-6','1-7','1-8','1-9','1-10','1-11','1-12',
+        '1-13','1-14','1-15','1-16','1-17','1-18','1-19','1-20','1-21','1-22','1-23','1-24','1-25',
+        '1-26','1-27','1-28','1-29','1-30','1-31','1-32','1-33','1-34','1-35','1-36','1-37','1-38',
+        '1-39','1-40','1-41','1-42','1-43','1-44','1-45','1-46','1-47','1-48',
+        '2-1','2-2','2-3','2-4','2-5','2-6','2-7','2-8','2-9','2-10','2-11','2-12','2-13','2-14',
+        '2-15','2-16','2-17','2-18','2-19','2-20','2-21','2-22','2-23','2-24','2-25','2-26','2-27',
+        '2-28','2-29','2-30','2-31','2-32','2-33','2-34','2-35','2-36','2-37','2-38','2-39','2-40',
+        '2-41','2-42','2-43','2-44','2-45','2-46','2-47','2-48',
+        '3-1','3-2','3-3','3-4','3-5','3-6','3-7','3-8','3-9','3-10','3-11','3-12','3-13','3-14',
+        '3-15','3-16','3-17','3-18','3-19','3-20',
+        '4-1','4-2','4-3','4-4','4-5','4-6','4-7','4-8','4-9','4-10','4-11','4-12','4-13','4-14',
+        '4-15','4-16','4-17','4-18','4-19','4-20','4-21','4-22','4-23','4-24','4-25','4-26','4-27',
+        '4-28','4-29','4-30','4-31','4-32','4-33','4-34','4-35','4-36',
+        '5-1','5-2','5-3','5-4','5-5','5-6','5-7','5-8','5-9','5-10','5-11','5-12','5-13','5-14',
+        '5-15','5-16','5-17','5-18','5-19','5-20','5-21','5-22','5-23','5-24','5-25','5-26','5-27',
+        '5-28','5-29','5-30','5-31','5-32','5-33','5-34','5-35','5-36','5-37','5-38','5-39','5-40',
+        '5-41','5-42','5-43','5-44','5-45','5-46','5-47','5-48','5-49','5-50','5-54','5-52','5-53','5-54',
+        '6-1','6-2','6-3','6-4','6-5','6-6','6-7','6-8','6-9','6-10','6-11','6-12','6-13','6-14',
+        '6-15','6-16','6-17','6-18','6-19','6-20','6-21','6-22','6-23','6-24','6-25','6-26','6-27',
+        '6-28','6-29','6-30','6-31','6-32','6-33','6-34','6-35','6-36','6-37','6-38','6-39','6-40',
+        '6-41','6-42','6-43','6-44','6-45','6-46','6-47','6-48','6-49','6-50','6-51','6-52','6-53','6-54','6-55','6-56',
+        '7-1','7-2','7-3','7-4','7-5','7-6','7-7','7-8','7-9','7-10','7-11','7-12','7-13','7-14',
+        '7-15','7-16','7-17','7-18','7-19','7-20','7-21','7-22','7-23','7-24','7-25','7-26','7-27']; // 这里放置您的一组数据
+        const button = document.getElementById('randomDataButton');
+        const dataDisplay = document.getElementById('dataDisplay');
+
+        button.addEventListener('click', function() {
+            // 随机选取两个数据
+            const selectedData1 = data.splice(Math.floor(Math.random() * data.length),1);
+            const selectedData2 = data.splice(Math.floor(Math.random() * data.length),1);
+            // 显示选取的数据
+            dataDisplay.innerHTML = '选中的题目: ' + selectedData1.join()+','+ selectedData2.join();
+        });
+    </script>
+</body>
 </html>
