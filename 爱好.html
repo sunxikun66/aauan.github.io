@@ -1,45 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="aihao.css">
+    <title>爱好</title>
     <link rel="stylesheet" href="按钮.css">
-</head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: "楷体", sans-serif;
+            background-color: #111; /* 背景颜色统一 */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .position {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        a.q {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 15px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a.q:hover {
+            background-color: rgba(255,204,0,0.8);
+            color: #000;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(255,204,0,0.5);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255,204,0,0.8);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card h1 a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.8em;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .card h1 a:hover {
+            color: #ffcc00;
+        }
+
+        .card p {
+            color: #ddd;
+            padding: 0 10px 15px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                gap: 20px;
+            }
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="position">
-            <a href="welcome.html" class="q">返回首页</a>
+        <a href="welcome.html" class="q">返回首页</a>
     </div>
-    <div class="card">
-        <div class="photo">
-            <img src="./image/相机.jpeg"alt="" height="500px" width="500px">
+
+    <div class="cards-container">
+        <div class="card">
+            <img src="./image/相机.jpeg" alt="摄影">
+            <h1><a href="./摄影.html">摄影</a></h1>
+            <p>记录<br>生活中的美</p>
         </div>
-        <h1><a href="./摄影.html" id="a">摄影</a></h1>
-        <p>记录</br>生活中的美<p>
-    </div>
-    <div class="card">
-        <div class="photo">
-            <img src="./image/旅行.jpg"alt="" height="500px" width="500px">
+
+        <div class="card">
+            <img src="./image/旅行.jpg" alt="旅行">
+            <h1><a href="./旅游.html">旅行</a></h1>
+            <p>让你拥抱未知的世界<br>顺其自然，随遇而安</p>
         </div>
-        <h1><a href="./旅游.html" id="a">旅行</a></h1>
-        <p>让你拥抱未知的世界</br>顺其自然，随遇而安<p>
-    </div>
-    <div class="card">
-        <div class="photo">
-            <img src="./image/跑步.jpg"alt="" height="500px" width="500px">
+
+        <div class="card">
+            <img src="./image/跑步.jpg" alt="运动">
+            <h1><a href="./运动.html">运动</a></h1>
+            <p>如果想哭就去跑步<br>把泪水变成汗水蒸发掉</p>
         </div>
-        <h1><a href="./运动.html" id="a">运动</a></h1>
-        <p>如果想哭就去跑步</br>把泪水变成汗水蒸发掉<p>
-    </div>
-    <div class="card">
-        <div class="photo">
-            <img src="./image/游戏.jpg" alt="" height="500px" width="500px">
+
+        <div class="card">
+            <img src="./image/游戏.jpg" alt="游戏">
+            <h1><a href="./游戏.html">游戏</a></h1>
+            <p>在一个个游戏里<br>看大千百态、芸芸众生</p>
         </div>
-        <h1><a href="./游戏.html" id="a">游戏</a></h1>
-        <p>在一个个游戏里</br>看大千百态、芸芸众生<p>
     </div>
 </body>
 </html>
