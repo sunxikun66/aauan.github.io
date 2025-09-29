@@ -13,9 +13,39 @@
         h2{
             text-shadow:5px 6px 4px white;
         }
+        /* 移动端隐藏原内容，显示提示 */
+        #mainContent { display: block; }
+        #mobileNotice {
+            display: none;
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 40%;
+            z-index: 9999;
+        }
     </style>
+    <script>
+        function checkMobile() {
+            // 简单判断移动端
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            if(isMobile) {
+                // 移动端隐藏页面内容，显示提示
+                document.getElementById('mainContent').style.display = 'none';
+                document.getElementById('mobileNotice').style.display = 'block';
+            }
+        }
+        window.onload = checkMobile;
+    </script>
 </head>
 <body>
+    <!-- 移动端提示 -->
+    <div id="mobileNotice">请使用电脑打开</div>
     <a class="music">
         <audio src="./music/折枝花满衣.mp3" controls autoplay="autoplay"></audio>
     </a>
