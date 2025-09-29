@@ -1,25 +1,101 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-CN">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
-    <title>旅游</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行日志</title>
     <link rel="stylesheet" href="按钮.css">
-    <link rel="stylesheet" href="./lvxing.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "楷体", sans-serif;
+            background: linear-gradient(to bottom, #080808, #585858);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .position, .position2 {
+            padding: 10px;
+        }
+
+        a.q {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        a.q:hover {
+            background-color: rgba(255,204,0,0.8);
+            color: #000;
+        }
+
+        .book {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255,204,0,0.3);
+        }
+
+        .cover {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .content p {
+            margin: 15px 0;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .content a:hover {
+            color: #ffcc00;
+        }
+
+        @media (max-width: 480px) {
+            .book {
+                padding: 20px 15px;
+            }
+
+            .cover {
+                font-size: 1.5em;
+            }
+
+            .content a {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="position">
         <a href="welcome.html" class="q">返回首页</a>
-</div>
-<div class="position2">
-    <a href="爱好.html" class="q">上一级</a>
-</div>
+    </div>
+    <div class="position2">
+        <a href="爱好.html" class="q">上一级</a>
+    </div>
+
     <div class="book">
-        <div class="cover">
-            <span>旅行日志</span>
-        </div>
+        <div class="cover">旅行日志</div>
         <div class="content">
             <p><a href="./v1.html">游棋盘山</a></p>
             <p><a href="./v2.html">览沈阳世博园</a></p>
