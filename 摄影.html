@@ -1,130 +1,49 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>旅游相册分类</title>
+    <title>旅游相册</title>
+    <link rel="stylesheet" href="sheying.css">
     <link rel="stylesheet" href="按钮.css">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "楷体", sans-serif;
-            background: linear-gradient(to bottom, #080808, #585858);
-            color: #fff;
-        }
-
-        .position, .position2 {
-            padding: 10px;
-        }
-
-        a.q {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 5px 10px;
-            background-color: rgba(0,0,0,0.5);
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        a.q:hover {
-            background-color: rgba(255,204,0,0.8);
-            color: #000;
-        }
-
-        .shell {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 20px;
-        }
-
-        .images {
-            position: relative;
-            width: 220px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-
-        .images img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.5s;
-        }
-
-        .images h2 {
-            margin-top: 10px;
-            font-size: 1.2em;
-            color: #ffcc00;
-        }
-
-        .images:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255,204,0,0.6);
-        }
-
-        /* 响应式优化 */
-        @media (max-width: 768px) {
-            .images {
-                width: 45%;
-            }
-            .images img {
-                height: 150px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .images {
-                width: 90%;
-            }
-            .images img {
-                height: 180px;
-            }
-        }
-    </style>
 </head>
+
 <body>
     <div class="position">
         <a href="welcome.html" class="q">返回首页</a>
-        <a href="爱好.html" class="q">上一级</a>
-    </div>
-
+</div>
+<div class="position2">
+    <a href="爱好.html" class="q">上一级</a>
+</div>
     <div class="shell">
         <div class="images">
-            <a href="./xk.html">
-                <img src="./xkimg/(7).jpg" alt="星空">
-            </a>
+                <a href="./xk.html">
+                    <img src="./xkimg/(7).jpg">
+                </a>
             <h2>星空</h2>
         </div>  
-
         <div class="images">
             <a href="./fj.html">
-                <img src="./image/1.jpg" alt="风景">
+                <img src="./image/1.jpg">
             </a>
             <h2>风景</h2>
         </div>
-
         <div class="images">
             <a href="./dw.html">
-                <img src="./dwimg/(18).jpg" alt="动物">
+                <img src="./dwimg/(18).jpg">
             </a>
             <h2>动物</h2>
         </div>
-
         <div class="images">
             <a href="./zw.html">
-                <img src="./zwimg/(2).jpg" alt="植物">
+                <img src="./zwimg/(2).jpg">
             </a>
             <h2>植物</h2>
         </div>
     </div>
+
+
 </body>
 </html>

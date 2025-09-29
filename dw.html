@@ -2,159 +2,193 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>旅游相册</title>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游相册</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: linear-gradient(-225deg, #080808 0%, #000000 48%, #585858 100%);/*颜色渐变*/
+            overflow: hidden;
+            height: 100vh;
+        }
 
-    body {
-      background-image: linear-gradient(-225deg, #080808 0%, #000000 48%, #585858 100%);
-      min-height: 100vh;
-      width: 100%;
-      overflow-x: hidden;
-    }
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
 
-    ::-webkit-scrollbar {
-      width: 2px;
-      height: 2px;
-    }
+        .images img {
+            border: #fff solid 10px;
+            max-width: 45vh;
+            max-height: 50vh;
+            transition: .5s;
+        }
 
-    .images img {
-      border: #fff solid 8px;
-      max-width: 45vh;
-      max-height: 50vh;
-      transition: .5s;
-    }
+        .images:hover img {
+            box-shadow: 0 10px 30px #86c4f7;
+            transform: scale(1.05);
+        }
 
-    .images:hover img {
-      box-shadow: 0 10px 30px #86c4f7;
-      transform: scale(1.05);
-    }
+        .shell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vh;
+            transform: rotate(-90deg) translate3d(0, -100vh, 0);
+            transform-origin: right top;
+            overflow-x: hidden;
+            height: 100vw;
+            perspective: 1px;
+            transform-style: preserve-3d;
+        }
 
-    /* 默认是横向滚动（PC端） */
-    .shell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100vh;
-      transform: rotate(-90deg) translate3d(0, -100vh, 0);
-      transform-origin: right top;
-      overflow-x: hidden;
-      height: 100vw;
-      perspective: 1px;
-      transform-style: preserve-3d;
-    }
+        .images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40vh;
+            transform-origin: 50% 50%;
+            transform: rotate(90deg) translateZ(.1px) scale(1.1) translateX(0px) translateY(2vh);
+            transition: 1s;
+        }
 
-    .images {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40vh;
-      transform-origin: 50% 50%;
-      transform: rotate(90deg) translateZ(.1px) scale(1.1) translateX(0px) translateY(2vh);
-      transition: 1s;
-    }
+        .slower {
+            transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateX(0%) translateY(-8vh);
+        }
 
-    .slower {
-      transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateX(0%) translateY(-8vh);
-    }
+        .slower1 {
+            transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateX(0%) translateY(2vh);
+        }
 
-    .slower1 {
-      transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateX(0%) translateY(2vh);
-    }
+        .slower-down {
+            transform: rotate(90deg) translateZ(-.1px) scale(1) translateX(0%) translateY(16vh);
+        }
 
-    .slower-down {
-      transform: rotate(90deg) translateZ(-.1px) scale(1) translateX(0%) translateY(16vh);
-    }
+        .faster {
+            transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateX(0%) translateY(15vh);
+        }
 
-    .faster {
-      transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateX(0%) translateY(15vh);
-    }
+        .faster1 {
+            transform: rotate(90deg) translateZ(.05px) scale(1.4) translateX(0%) translateY(10vh);
+        }
 
-    .faster1 {
-      transform: rotate(90deg) translateZ(.05px) scale(1.4) translateX(0%) translateY(10vh);
-    }
+        .fastest {
+            transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+        }
 
-    .fastest {
-      transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
-    }
-
-    .vertical {
-      transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateX(0%) translateY(-3vh);
-    }
-
-    /* =========== 手机端自适应 =========== */
-    @media (max-width: 768px) {
-      body {
-        overflow-y: auto;
-      }
-
-      .shell {
-        transform: none;
-        width: 100%;
-        height: auto;
-        flex-direction: column;
-        perspective: none;
-      }
-
-      .images {
-        transform: none !important;
-        margin: 15px 0;
-      }
-
-      .images img {
-        max-width: 90%;
-        height: auto;
-      }
-    }
-  </style>
+        .vertical {
+            transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateX(0%) translateY(-3vh);
+        }
+    </style>
+    <link rel="stylesheet" href="按钮.css">
 </head>
 
 <body>
-  <div class="position">
-    <a href="welcome.html" class="q">返回首页</a>
-  </div>
-  <div class="position2">
+    <div class="position">
+        <a href="welcome.html" class="q">返回首页</a>
+</div>
+<div class="position2">
     <a href="爱好.html" class="q">上一级</a>
-  </div>
-
-  <div class="shell">
-    <div class="images slower"><img src="./dwimg/(1).jpg"></div>
-    <div class="images faster"><img src="./dwimg/(2).jpg"></div>
-    <div class="images vertical"><img src="./dwimg/(3).jpg"></div>
-    <div class="images slower-down"><img src="./dwimg/(4).jpg"></div>
-    <div class="images"><img src="./dwimg/(5).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(6).jpg"></div>
-    <div class="images faster1"><img src="./dwimg/(7).jpg"></div>
-    <div class="images slower1"><img src="./dwimg/(8).jpg"></div>
-    <div class="images"><img src="./dwimg/(9).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(10).jpg"></div>
-    <div class="images faster"><img src="./dwimg/(11).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(12).jpg"></div>
-    <div class="images faster"><img src="./dwimg/(13).jpg"></div>
-    <div class="images vertical"><img src="./dwimg/(14).jpg"></div>
-    <div class="images slower-down"><img src="./dwimg/(15).jpg"></div>
-    <div class="images"><img src="./dwimg/(16).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(17).jpg"></div>
-    <div class="images faster1"><img src="./dwimg/(18).jpg"></div>
-    <div class="images slower1"><img src="./dwimg/(19).jpg"></div>
-    <div class="images"><img src="./dwimg/(20).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(21).jpg"></div>
-    <div class="images faster"><img src="./dwimg/(22).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(23).jpg"></div>
-    <div class="images faster"><img src="./dwimg/(24).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(25).jpg"></div>
-    <div class="images faster"><img src="./dwimg/(26).jpg"></div>
-    <div class="images vertical"><img src="./dwimg/(27).jpg"></div>
-    <div class="images slower-down"><img src="./dwimg/(28).jpg"></div>
-    <div class="images"><img src="./dwimg/(29).jpg"></div>
-    <div class="images slower"><img src="./dwimg/(30).jpg"></div>
-  </div>
+</div>
+    <div class="shell">
+        <div class="images slower">
+            <img src="./dwimg/(1).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./dwimg/(2).jpg">
+        </div>
+        <div class="images vertical">
+            <img src="./dwimg/(3).jpg">
+        </div>
+        <div class="images slower-down">
+            <img src="./dwimg/(4).jpg">
+        </div>
+        <div class="images">
+            <img src="./dwimg/(5).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/(6).jpg">
+        </div>
+        <div class="images faster1">
+            <img src="./dwimg/(7).jpg">
+        </div>
+        <div class="images slower1">
+            <img src="./dwimg/(8).jpg">
+        </div>
+        <div class="images">
+            <img src="./dwimg/(9).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/(10).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./dwimg/ (11).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/ (12).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./dwimg/ (13).jpg">
+        </div>
+        <div class="images vertical">
+            <img src="./dwimg/ (14).jpg">
+        </div>
+        <div class="images slower-down">
+            <img src="./dwimg/ (15).jpg">
+        </div>
+        <div class="images">
+            <img src="./dwimg/ (16).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/ (17).jpg">
+        </div>
+        <div class="images faster1">
+            <img src="./dwimg/ (18).jpg">
+        </div>
+        <div class="images slower1">
+            <img src="./dwimg/ (19).jpg">
+        </div>
+        <div class="images">
+            <img src="./dwimg/ (20).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/ (21).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./dwimg/ (22).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/ (23).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./dwimg/ (24).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/ (25).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./dwimg/ (26).jpg">
+        </div>
+        <div class="images vertical">
+            <img src="./dwimg/ (27).jpg">
+        </div>
+        <div class="images slower-down">
+            <img src="./dwimg/ (28).jpg">
+        </div>
+        <div class="images">
+            <img src="./dwimg/ (29).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./dwimg/ (30).jpg">
+        </div>
+        <div class="images faster1">
+        </div>
+    </div>
 </body>
 </html>

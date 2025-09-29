@@ -1,47 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>welcome</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <link rel="stylesheet" href="./welcome.css">
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden; /* 防止横向白边 */
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
 
-    <style>
-        *{ margin:0px; padding:0px;}
-        h2{
-            text-shadow:5px 6px 4px white;
-        }
-    </style>
+    body {
+      /* 全屏背景图 */
+      background: url("./image/海滩上的海星.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* 音乐播放器 */
+    .music {
+      margin-top: 10px;
+    }
+
+    /* 头像 */
+    .tx {
+      margin: 20px 0;
+    }
+
+    .tx img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.9);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* 导航按钮区域 */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+      max-width: 90%;
+    }
+
+    .nav a {
+      flex: 1 1 100px; /* 自适应宽度，最小100px */
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      backdrop-filter: blur(4px); /* 毛玻璃效果 */
+      transition: all 0.3s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    /* 跑马灯标题 */
+    .title {
+      margin: 30px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-shadow: 2px 3px 6px rgba(0,0,0,0.5);
+    }
+
+    marquee {
+      font-size: 1.6rem;
+      color: #fff;
+    }
+
+    /* 📱 手机端适配 */
+    @media (max-width: 768px) {
+      .tx img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .nav a {
+        font-size: 1rem;
+        padding: 10px 14px;
+      }
+
+      marquee {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tx img {
+        width: 65px;
+        height: 65px;
+      }
+
+      .nav a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a class="music">
-        <audio src="./music/折枝花满衣.mp3" controls autoplay="autoplay"></audio>
-    </a>
-    <div class="thumbnail">
-        <img src="./image/海滩上的海星.jpg" alt="">
-        <div class="tx">
-            <img src="./image/头像.png">
-        </div>
-        <div class="geren">
-            <a href="./个人.html">个</br>人</a>
-        </div>
-        <div class="aihao"">
-            <a href="./爱好.html">爱</br>好</a>
-        </div>
-        <div class="shenghuo">
-            <a href="./格言.html">格</br>言</a>
-        </div>
-        <div class="ouxiang">
-            <a href="./偶像.html">偶</br>像</a>
-        </div>
-        <div class="jiaxiang">
-            <a href="./家乡.html"target="_blank">家</br>乡</a>
-        </div>
-    </div>
-    <div class="title">
-        <h2 ><marquee scrollamount="12" width="900" behavior="slide">Welcome to my website!</marquee></h2>
-    </div>
+  <!-- 音乐播放器 -->
+  <div class="music">
+    <audio src="./music/折枝花满衣.mp3" controls autoplay></audio>
+  </div>
+
+  <!-- 头像 -->
+  <div class="tx">
+    <img src="./image/头像.png" alt="头像">
+  </div>
+
+  <!-- 导航菜单 -->
+  <div class="nav">
+    <a href="./个人.html">个人</a>
+    <a href="./爱好.html">爱好</a>
+    <a href="./格言.html">格言</a>
+    <a href="./偶像.html">偶像</a>
+    <a href="./家乡.html" target="_blank">家乡</a>
+  </div>
+
+  <!-- 跑马灯标题 -->
+  <div class="title">
+    <h2><marquee scrollamount="8" behavior="slide">Welcome to my website!</marquee></h2>
+  </div>
 </body>
 </html>

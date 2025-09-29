@@ -1,112 +1,128 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>格言</title>
+    <title>Document</title>
     <link rel="stylesheet" href="按钮.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "楷体", sans-serif;
-            background: url(./image/格言.jpeg) no-repeat center center/cover;
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .position {
-            padding: 10px;
-        }
-
-        a.q {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 5px 10px;
-            background-color: rgba(0,0,0,0.5);
-            border-radius: 5px;
-        }
-
-        a.q:hover {
-            background-color: rgba(255,204,0,0.8);
-            color: #000;
-        }
-
-        .text {
-            position: absolute;
-            top: 100px;
-            left: 0;
-            width: 100%;
-        }
-
-        .text div {
-            font-size: 2em;
-            line-height: 2.5em;
-            white-space: nowrap;
-            overflow: hidden;
-            display: block;
-            color: #ffcc00;
-        }
-
-        .scroll {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll-left linear infinite;
-        }
-
-        @keyframes scroll-left {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* 为每条格言设置不同速度 */
-        .a { animation-duration: 10s; }
-        .b { animation-duration: 11s; }
-        .c { animation-duration: 8s; }
-        .d { animation-duration: 8.5s; }
-        .e { animation-duration: 7s; }
-        .f { animation-duration: 9s; }
-        .g { animation-duration: 6s; }
-        .h { animation-duration: 8s; }
-        .i { animation-duration: 6.5s; }
-        .j { animation-duration: 12s; }
-
-        /* 鼠标悬停暂停动画 */
-        .text div:hover {
-            animation-play-state: paused;
-        }
-
-        @media (max-width: 480px) {
-            .text div {
-                font-size: 1.5em;
-                line-height: 2em;
-            }
-        }
-    </style>
 </head>
+    <style>
+        body{
+            background-image: url(./image/格言.jpeg);
+			background-size: cover;
+        }
+        *{ margin:0px; padding:0px;}
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
+        .text{
+		position: absolute;
+        font-family: "楷体";
+        line-height: 80px;
+        color: white;
+		font-size: 350%;
+		top: 100px;
+		left: -100px;
+	}
+    .a{
+        transform: translateX(0%);
+        animation: scrols 10s infinite linear;
+    }
+    @keyframes scrols{
+        from{
+            transform: translateX(120%);
+        }
+        to{
+            transform: translateX(-120%);
+        }
+    }
+    .b{
+        transform: translateX(0%);
+        animation: scrols 11s infinite linear;
+    }
+    .c{
+        transform: translateX(0%);
+        animation: scrols 8s infinite linear;
+    }
+    .d{
+        transform: translateX(0%);
+        animation: scrols 8.5s infinite linear;
+    }
+    .e{
+        transform: translateX(0%);
+        animation: scrols 7s infinite linear;
+    }
+    .f{
+        transform: translateX(0%);
+        animation: scrols 9s infinite linear;
+    }
+    .g{
+        transform: translateX(0%);
+        animation: scrols 6s infinite linear;
+    }
+    .h{
+        transform: translateX(0%);
+        animation: scrols 8s infinite linear;
+    }
+    .i{
+        transform: translateX(0%);
+        animation: scrols 6.5s infinite linear;
+    }
+    .j{
+        transform: translateX(0%);
+        animation: scrols 12s infinite linear;
+    }
+
+    .a:hover{
+        animation-play-state:paused;
+    }
+    .b:hover{
+        animation-play-state:paused;
+    }
+    .c:hover{
+        animation-play-state:paused;
+    }
+    .d:hover{
+        animation-play-state:paused;
+    }
+    .e:hover{
+        animation-play-state:paused;
+    }
+    .f:hover{
+        animation-play-state:paused;
+    }
+    .g:hover{
+        animation-play-state:paused;
+    }
+    .h:hover{
+        animation-play-state:paused;
+    }
+    .i:hover{
+        animation-play-state:paused;
+    }
+    .j:hover{
+        animation-play-state:paused;
+    }
+
+    </style>
 <body>
     <div class="position">
         <a href="welcome.html" class="q">返回首页</a>
-    </div>
-
+</div>
     <div class="text">
-        <div class="scroll a">我什么也不否认,但我怀疑一切——拜伦</div>
-        <div class="scroll b">谎言不会伤人，真相才是快刀——卡蜜尔</div>
-        <div class="scroll c">世界既不黑也不白，而是一道精致的灰——卡蜜尔</div>
-        <div class="scroll d">我们面前的山不一定真的难以逾越，甚至不一定是山——潘森</div>
-        <div class="scroll e">一只手放在天平上，那还有什么真正的平衡——斯维因</div>
-        <div class="scroll f">如果一件事美好得太不真实，很可能是假的——卢锡安</div>
-        <div class="scroll g">从高处取下尘封已久的心，取悦他人远不如先爱上自己——萨勒芬妮</div>
-        <div class="scroll h">悔恨，会抹平我们灵魂中的棱角——卡蜜尔</div>
-        <div class="scroll i">我曾踏足山巅，也曾进入低谷，二者都使我受益良多——塔里克</div>
-        <div class="scroll j">命数如秩，当为磐石——塔莉垭</div>
-    </div>
+    <div class="a">我什么也不否认,但我怀疑一切——拜伦</div>
+    <div class="b">谎言不会伤人，真相才是快刀——卡蜜尔</div>
+    <div class="c">世界既不黑也不白，而是一道精致的灰——卡蜜尔</div>
+    <div class="d">我们面前的山不一定真的难以逾越，甚至不一定是山——潘森</div>
+    <div class="e">一只手放在天平上，那还有什么真正的平衡——斯维因</div>
+    <div class="f">如果一件事美好得太不真实，很可能是假的——卢锡安</div>
+    <div class="g">从高处取下尘封已久的心，取悦他人远不如先爱上自己——萨勒芬妮</div>
+    <div class="h">悔恨，会抹平我们灵魂中的棱角——卡蜜尔</div>
+    <div class="i">我曾踏足山巅，也曾进入低谷，二者都使我受益良多——塔里克</div>
+    <div class="j">命数如秩，当为磐石——塔莉垭</div>
+
+	</div>	
 </body>
 </html>

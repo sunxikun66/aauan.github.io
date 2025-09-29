@@ -2,186 +2,199 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>旅游相册</title>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游相册</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: linear-gradient(-225deg, #b10303 0%, #c4a0a0 48%, #07fd18 100%);/*颜色渐变*/
+            overflow: hidden;
+            height: 100vh;
+        }
 
-    body {
-      background-image: linear-gradient(-225deg, #b10303 0%, #c4a0a0 48%, #07fd18 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
 
-    ::-webkit-scrollbar {
-      width: 4px;
-      height: 4px;
-    }
+        .images img {
+            border: #fff solid 10px;
+            max-width: 45vh;
+            max-height: 50vh;
+            transition: .5s;
+        }
 
-    .images img {
-      border: #fff solid 6px;
-      max-width: 90vw;
-      max-height: 60vh;
-      width: auto;
-      height: auto;
-      transition: .5s;
-      border-radius: 8px;
-    }
+        .images:hover img {
+            box-shadow: 0 10px 30px #86c4f7;
+            transform: scale(1.05);
+        }
+        .shell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vh;
+            transform: rotate(-90deg) translate3d(0, -100vh, 0);
+            transform-origin: right top;
+            overflow-x: hidden;
+            height: 100vw;
+            perspective: 1px;
+            transform-style: preserve-3d;
+        }
 
-    .images:hover img {
-      box-shadow: 0 10px 30px #86c4f7;
-      transform: scale(1.05);
-    }
+        .images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40vh;
+            transform-origin: 50% 50%;
+            transform: rotate(90deg) translateZ(.1px) scale(1.1) translateX(0px) translateY(2vh);
+            transition: 1s;
+        }
 
-    .shell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      height: auto;
-      perspective: 1px;
-      transform-style: preserve-3d;
-    }
+        .slower {
+            transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateX(0%) translateY(-8vh);
+        }
 
-    .images {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40vh;
-      transition: 1s;
-    }
+        .slower1 {
+            transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateX(0%) translateY(2vh);
+        }
 
-    /* 桌面端效果 */
-    @media (min-width: 768px) {
-      .shell {
-        width: 100vh;
-        transform: rotate(-90deg) translate3d(0, -100vh, 0);
-        transform-origin: right top;
-        height: 100vw;
-      }
+        .slower-down {
+            transform: rotate(90deg) translateZ(-.1px) scale(1) translateX(0%) translateY(16vh);
+        }
 
-      .images {
-        transform: rotate(90deg) translateZ(.1px) scale(1.1) translateY(2vh);
-      }
+        .faster {
+            transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateX(0%) translateY(15vh);
+        }
 
-      .slower {
-        transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateY(-8vh);
-      }
+        .faster1 {
+            transform: rotate(90deg) translateZ(.05px) scale(1.4) translateX(0%) translateY(10vh);
+        }
 
-      .slower1 {
-        transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateY(2vh);
-      }
+        .fastest {
+            transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+        }
 
-      .slower-down {
-        transform: rotate(90deg) translateZ(-.1px) scale(1) translateY(16vh);
-      }
-
-      .faster {
-        transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateY(15vh);
-      }
-
-      .faster1 {
-        transform: rotate(90deg) translateZ(.05px) scale(1.4) translateY(10vh);
-      }
-
-      .fastest {
-        transform: rotate(90deg) translateZ(.22px) scale(0.7) translate(-10vh, -15vh);
-      }
-
-      .vertical {
-        transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateY(-3vh);
-      }
-    }
-
-    /* 手机端纵向排列 */
-    @media (max-width: 767px) {
-      .shell {
-        transform: none !important;
-        width: 100%;
-        height: auto;
-      }
-
-      .images {
-        transform: none !important;
-        margin: 12px 0;
-      }
-
-      .images img {
-        max-width: 95%;
-        max-height: 50vh;
-      }
-    }
-
-    .position,
-    .position2 {
-      margin: 10px;
-    }
-
-    .q {
-      display: inline-block;
-      padding: 8px 16px;
-      background: #444;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-
-    .q:hover {
-      background: #666;
-    }
-  </style>
-  <link rel="stylesheet" href="按钮.css">
+        .vertical {
+            transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateX(0%) translateY(-3vh);
+        }
+    </style>
+    <link rel="stylesheet" href="按钮.css">
 </head>
 
 <body>
-  <div class="position">
-    <a href="welcome.html" class="q">返回首页</a>
-  </div>
-  <div class="position2">
+    <div class="position">
+        <a href="welcome.html" class="q">返回首页</a>
+</div>
+<div class="position2">
     <a href="爱好.html" class="q">上一级</a>
-  </div>
-
-  <div class="shell">
-    <div class="images slower"><img src="./zwimg/(1).jpg"></div>
-    <div class="images faster"><img src="./zwimg/(2).jpg"></div>
-    <div class="images vertical"><img src="./zwimg/(3).jpg"></div>
-    <div class="images slower-down"><img src="./zwimg/(4).jpg"></div>
-    <div class="images"><img src="./zwimg/(5).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(6).jpg"></div>
-    <div class="images faster1"><img src="./zwimg/(7).jpg"></div>
-    <div class="images slower1"><img src="./zwimg/(8).jpg"></div>
-    <div class="images"><img src="./zwimg/(9).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(10).jpg"></div>
-    <div class="images faster"><img src="./zwimg/(11).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(12).jpg"></div>
-    <div class="images faster"><img src="./zwimg/(13).jpg"></div>
-    <div class="images vertical"><img src="./zwimg/(14).jpg"></div>
-    <div class="images slower-down"><img src="./zwimg/(15).jpg"></div>
-    <div class="images"><img src="./zwimg/(16).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(17).jpg"></div>
-    <div class="images faster1"><img src="./zwimg/(18).jpg"></div>
-    <div class="images slower1"><img src="./zwimg/(19).jpg"></div>
-    <div class="images"><img src="./zwimg/(20).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(21).jpg"></div>
-    <div class="images faster"><img src="./zwimg/(22).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(23).jpg"></div>
-    <div class="images faster"><img src="./zwimg/(24).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(25).jpg"></div>
-    <div class="images faster"><img src="./zwimg/(26).jpg"></div>
-    <div class="images vertical"><img src="./zwimg/(27).jpg"></div>
-    <div class="images slower-down"><img src="./zwimg/(28).jpg"></div>
-    <div class="images"><img src="./zwimg/(29).jpg"></div>
-    <div class="images slower"><img src="./zwimg/(30).jpg"></div>
-    <div class="images faster1"><img src="./zwimg/(31).jpg"></div>
-    <div class="images slower1"><img src="./zwimg/(32).jpg"></div>
-    <div class="images"><img src="./zwimg/(33).jpg"></div>
-  </div>
+</div>
+    <div class="shell">
+        <div class="images slower">
+            <img src="./zwimg/(1).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./zwimg/(2).jpg">
+        </div>
+        <div class="images vertical">
+            <img src="./zwimg/(3).jpg">
+        </div>
+        <div class="images slower-down">
+            <img src="./zwimg/(4).jpg">
+        </div>
+        <div class="images">
+            <img src="./zwimg/(5).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/(6).jpg">
+        </div>
+        <div class="images faster1">
+            <img src="./zwimg/(7).jpg">
+        </div>
+        <div class="images slower1">
+            <img src="./zwimg/(8).jpg">
+        </div>
+        <div class="images">
+            <img src="./zwimg/(9).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/(10).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./zwimg/(11).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/(12).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./zwimg/(13).jpg">
+        </div>
+        <div class="images vertical">
+            <img src="./zwimg/ (14).jpg">
+        </div>
+        <div class="images slower-down">
+            <img src="./zwimg/ (15).jpg">
+        </div>
+        <div class="images">
+            <img src="./zwimg/ (16).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/ (17).jpg">
+        </div>
+        <div class="images faster1">
+            <img src="./zwimg/ (18).jpg">
+        </div>
+        <div class="images slower1">
+            <img src="./zwimg/ (19).jpg">
+        </div>
+        <div class="images">
+            <img src="./zwimg/ (20).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/ (21).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./zwimg/ (22).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/ (23).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./zwimg/ (24).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/ (25).jpg">
+        </div>
+        <div class="images faster">
+            <img src="./zwimg/ (26).jpg">
+        </div>
+        <div class="images vertical">
+            <img src="./zwimg/ (27).jpg">
+        </div>
+        <div class="images slower-down">
+            <img src="./zwimg/ (28).jpg">
+        </div>
+        <div class="images">
+            <img src="./zwimg/ (29).jpg">
+        </div>
+        <div class="images slower">
+            <img src="./zwimg/ (30).jpg">
+        </div>
+        <div class="images faster1">
+            <img src="./zwimg/ (31).jpg">
+        </div>
+        <div class="images slower1">
+            <img src="./zwimg/ (32).jpg">
+        </div>
+        <div class="images">
+            <img src="./zwimg/ (33).jpg">
+        </div>
+    </div>
 </body>
 </html>
