@@ -2,273 +2,189 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>旅游相册</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-image: linear-gradient(-225deg, #c5fa05 0%, #9db1a6 48%, #c78bcf 100%);/*颜色渐变*/
-            overflow: hidden;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旅游相册</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-        ::-webkit-scrollbar {
-            width: 1px;
-            height: 1px;
-        }
+    body {
+      background-image: linear-gradient(-225deg, #c5fa05 0%, #9db1a6 48%, #c78bcf 100%);
+      min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+    }
 
-        .images img {
-            border: #fff solid 10px;
-            max-width: 45vh;
-            max-height: 50vh;
-            transition: .5s;
-        }
+    ::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
 
-        .images:hover img {
-            box-shadow: 0 10px 30px #86c4f7;
-            transform: scale(1.05);
-        }
+    .images img {
+      border: #fff solid 8px;
+      max-width: 45vh;
+      max-height: 50vh;
+      transition: .5s;
+    }
 
-        .shell {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100vh;
-            transform: rotate(-90deg) translate3d(0, -100vh, 0);
-            transform-origin: right top;
-            overflow-x: hidden;
-            height: 100vw;
-            perspective: 1px;
-            transform-style: preserve-3d;
-        }
+    .images:hover img {
+      box-shadow: 0 10px 30px #86c4f7;
+      transform: scale(1.05);
+    }
 
-        .images {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 40vh;
-            transform-origin: 50% 50%;
-            transform: rotate(90deg) translateZ(.1px) scale(1.1) translateX(0px) translateY(2vh);
-            transition: 1s;
-        }
+    /* 默认是横向滚动（PC端） */
+    .shell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vh;
+      transform: rotate(-90deg) translate3d(0, -100vh, 0);
+      transform-origin: right top;
+      overflow-x: hidden;
+      height: 100vw;
+      perspective: 1px;
+      transform-style: preserve-3d;
+    }
 
-        .slower {
-            transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateX(0vh) translateY(-8vh);
-        }
+    .images {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40vh;
+      transform-origin: 50% 50%;
+      transform: rotate(90deg) translateZ(.1px) scale(1.1) translateX(0px) translateY(2vh);
+      transition: 1s;
+    }
 
-        .slower1 {
-            transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateX(0vh) translateY(2vh);
-        }
+    .slower {
+      transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateX(0vh) translateY(-8vh);
+    }
 
-        .slower-down {
-            transform: rotate(90deg) translateZ(-.1px) scale(1) translateX(0vh) translateY(16vh);
-        }
+    .slower1 {
+      transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateX(0vh) translateY(2vh);
+    }
 
-        .faster {
-            transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateX(0vh) translateY(15vh);
-        }
+    .slower-down {
+      transform: rotate(90deg) translateZ(-.1px) scale(1) translateX(0vh) translateY(16vh);
+    }
 
-        .faster1 {
-            transform: rotate(90deg) translateZ(.05px) scale(1.4) translateX(0vh) translateY(10vh);
-        }
+    .faster {
+      transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateX(0vh) translateY(15vh);
+    }
 
-        .fastest {
-            transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(0vh) translateY(-15vh);
-        }
+    .faster1 {
+      transform: rotate(90deg) translateZ(.05px) scale(1.4) translateX(0vh) translateY(10vh);
+    }
 
-        .vertical {
-            transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateX(0vh) translateY(-3vh);
-        }
-    </style>
+    .fastest {
+      transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(0vh) translateY(-15vh);
+    }
+
+    .vertical {
+      transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateX(0vh) translateY(-3vh);
+    }
+
+    /* =========== 手机端自适应 =========== */
+    @media (max-width: 768px) {
+      body {
+        overflow-y: auto;
+      }
+
+      .shell {
+        transform: none;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        perspective: none;
+      }
+
+      .images {
+        transform: none !important;
+        margin: 15px 0;
+      }
+
+      .images img {
+        max-width: 90%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
+
 <link rel="stylesheet" href="按钮.css">
+
 <body>
-    <div class="position">
-        <a href="welcome.html" class="q">返回首页</a>
-</div>
-<div class="position2">
+  <div class="position">
+    <a href="welcome.html" class="q">返回首页</a>
+  </div>
+  <div class="position2">
     <a href="爱好.html" class="q">上一级</a>
-</div>
-    <div class="shell">
-        <div class="images slower">
-            <img src="./fjimg/(1).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/(2).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/(3).jpg">
-        </div>
-        <div class="images slower-down">
-            <img src="./fjimg/(4).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/(5).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/(6).jpg">
-        </div>
-        <div class="images faster1">
-            <img src="./fjimg/(7).jpg">
-        </div>
-        <div class="images slower1">
-            <img src="./fjimg/(8).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/(9).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/(10).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/(11).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/(12).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (13).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/ (14).jpg">
-        </div>
-        <div class="images slower-down">
-            <img src="./fjimg/ (15).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/ (16).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (17).jpg">
-        </div>
-        <div class="images faster1">
-            <img src="./fjimg/ (18).jpg">
-        </div>
-        <div class="images slower1">
-            <img src="./fjimg/ (19).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/ (20).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (21).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (22).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (23).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (24).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (25).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (26).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/ (27).jpg">
-        </div>
-        <div class="images slower-down">
-            <img src="./fjimg/ (28).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/ (29).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (30).jpg">
-        </div>
-        <div class="images faster1">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (31).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (32).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (33).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/ (34).jpg">
-        </div>
-        <div class="images slower-down">
-            <img src="./fjimg/ (35).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/ (36).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (37).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/ (38).jpg">
-        </div>
-        <div class="images slower-down">
-            <img src="./fjimg/ (39).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/ (40).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (41).jpg">
-        </div>
-        <div class="images faster1">
-            <img src="./fjimg/ (42).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (43).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (44).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (45).jpg">
-        </div>
-        <div class="images vertical">
-            <img src="./fjimg/ (46).jpg">
-        </div>
-        <div class="images slower-down">
-            <img src="./fjimg/ (47).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/ (48).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (49).jpg">
-        </div>
-        <div class="images faster1">
-            <img src="./fjimg/ (50).jpg">
-        </div>
-        <div class="images slower1">
-            <img src="./fjimg/ (51).jpg">
-        </div>
-        <div class="images">
-            <img src="./fjimg/ (52).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (53).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (54).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (55).jpg">
-        </div>
-        <div class="images faster">
-            <img src="./fjimg/ (56).jpg">
-        </div>
-        <div class="images slower">
-            <img src="./fjimg/ (57).jpg">
-        </div>
-    </div>
+  </div>
+
+  <div class="shell">
+    <div class="images slower"><img src="./fjimg/(1).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(2).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(3).jpg"></div>
+    <div class="images slower-down"><img src="./fjimg/(4).jpg"></div>
+    <div class="images"><img src="./fjimg/(5).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(6).jpg"></div>
+    <div class="images faster1"><img src="./fjimg/(7).jpg"></div>
+    <div class="images slower1"><img src="./fjimg/(8).jpg"></div>
+    <div class="images"><img src="./fjimg/(9).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(10).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(11).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(12).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(13).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(14).jpg"></div>
+    <div class="images slower-down"><img src="./fjimg/(15).jpg"></div>
+    <div class="images"><img src="./fjimg/(16).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(17).jpg"></div>
+    <div class="images faster1"><img src="./fjimg/(18).jpg"></div>
+    <div class="images slower1"><img src="./fjimg/(19).jpg"></div>
+    <div class="images"><img src="./fjimg/(20).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(21).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(22).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(23).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(24).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(25).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(26).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(27).jpg"></div>
+    <div class="images slower-down"><img src="./fjimg/(28).jpg"></div>
+    <div class="images"><img src="./fjimg/(29).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(30).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(31).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(32).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(33).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(34).jpg"></div>
+    <div class="images slower-down"><img src="./fjimg/(35).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(36).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(37).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(38).jpg"></div>
+    <div class="images slower-down"><img src="./fjimg/(39).jpg"></div>
+    <div class="images"><img src="./fjimg/(40).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(41).jpg"></div>
+    <div class="images faster1"><img src="./fjimg/(42).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(43).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(44).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(45).jpg"></div>
+    <div class="images vertical"><img src="./fjimg/(46).jpg"></div>
+    <div class="images slower-down"><img src="./fjimg/(47).jpg"></div>
+    <div class="images"><img src="./fjimg/(48).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(49).jpg"></div>
+    <div class="images faster1"><img src="./fjimg/(50).jpg"></div>
+    <div class="images slower1"><img src="./fjimg/(51).jpg"></div>
+    <div class="images"><img src="./fjimg/(52).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(53).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(54).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(55).jpg"></div>
+    <div class="images faster"><img src="./fjimg/(56).jpg"></div>
+    <div class="images slower"><img src="./fjimg/(57).jpg"></div>
+  </div>
 </body>
+
 </html>
