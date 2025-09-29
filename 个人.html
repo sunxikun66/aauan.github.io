@@ -1,66 +1,97 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>个人介绍</title>
-		<style>
-		body 
-		{
-			background-image: url(./image/bj2.jpg);
-			background-size: cover;
-		}
-		div.transbox
-		{
-		  width: 1050px;
-		  height: 620px;
-		  margin: 90px 90px;
-		  background-color: #ffffff;
-		  border: 1px solid #FFFFFF;
-		  opacity:0.8;
-		}
-		
-		h1 {
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>个人介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url(./image/bj2.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: "楷体", sans-serif;
+            color: mediumpurple;
+        }
+        .transbox {
+            max-width: 90%;
+            margin: 5% auto;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 12px;
+        }
+        h1 {
             text-align: center;
-            font-family: "楷体";
-            font-size: 50px;
+            font-size: 2.2em;
+            margin-bottom: 20px;
         }
-		h2.ex1 {margin-left:5cm;}
-		h3.ex1 {margin-left:5cm;}
-		img.ex1{margin-left:5cm;}
-		p{text-align: right;}
-		p.ex1{margin-right: 2cm;}
-		p{color:mediumpurple}
-		
-		.cc:hover {color:#ffcc00;}
-        .img1{
-            position: absolute;
-            top: 100px;
-            left: 950px;
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1.1em;
         }
-		</style>
-	</head>
-	<link rel="stylesheet" href="按钮.css">
-	<body>
-		<div class="position">
-			<a href="welcome.html" class="q">返回首页</a>
-	</div>
-		<div class="background">
-		<div class="transbox">
-			
-			<h1>个人简介</h1>
-			<img src="./image/头像.png" height="100px" width="100px" class="ex1" />
-			<h2 class="ex1">孙希坤</h2>
-			<h3 class="ex1">学号：20211971</h3>
-			<h3 class="ex1">班级：应物2103班</h3>
-			<h3 class="ex1">学院：理学院</h3>
-			<h3 class="ex1">学校：<a class="cc" href="http://www.neu.edu.cn/">东北大学</a></h3>
-			<h3 class="ex1"><a class="cc" href="./家乡.html">家乡</a>：山东</h3>
-            <h3 class="ex1"><a class="cc" href="./爱好.html">爱好</a>：拍照、旅行、运动、游戏</h3>
-            <h3 class="ex1">QQ：879651977</h3>
-		</div>
-		</div>
-		<div class="img1">
-            <img src="./image/wx.png" width="190px" height="258px" ></img>
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .cc:hover {
+            color: #ffcc00;
+        }
+        .img1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .img1 img {
+            max-width: 180px;
+            height: auto;
+        }
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .profile {
+                font-size: 1em;
+                align-items: center;
+                text-align: center;
+            }
+            .profile img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="按钮.css">
+</head>
+<body>
+    <div class="position">
+        <a href="welcome.html" class="q">返回首页</a>
+    </div>
+
+    <div class="transbox">
+        <h1>个人简介</h1>
+        <div class="profile">
+            <img src="./image/头像.png" alt="头像" />
+            <h2>孙希坤</h2>
+            <h3>学号：20211971</h3>
+            <h3>班级：应物2103班</h3>
+            <h3>学院：理学院</h3>
+            <h3>学校：<a class="cc" href="http://www.neu.edu.cn/">东北大学</a></h3>
+            <h3><a class="cc" href="./家乡.html">家乡</a>：山东</h3>
+            <h3><a class="cc" href="./爱好.html">爱好</a>：拍照、旅行、运动、游戏</h3>
+            <h3>QQ：879651977</h3>
         </div>
-	</body>
+        <div class="img1">
+            <img src="./image/wx.png" alt="微信二维码">
+        </div>
+    </div>
+</body>
 </html>
