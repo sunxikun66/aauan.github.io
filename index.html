@@ -1,47 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>welcome</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <link rel="stylesheet" href="./welcome.css">
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f9f9f9;
+      color: #333;
+    }
 
-    <style>
-        *{ margin:0px; padding:0px;}
-        h2{
-            text-shadow:5px 6px 4px white;
-        }
-    </style>
+    h2 {
+      text-shadow: 2px 3px 3px white;
+      font-size: 2rem;
+      margin: 15px 0;
+    }
+
+    .music {
+      display: block;
+      margin: 10px auto;
+    }
+
+    /* 背景区域 */
+    .thumbnail {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .thumbnail img.bg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* 头像 */
+    .tx {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tx img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    /* 导航按钮区域 */
+    .nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .nav a {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .nav a:hover {
+      background: #eee;
+      transform: scale(1.05);
+    }
+
+    /* 标题区域 */
+    .title {
+      margin: 20px 0;
+    }
+
+    marquee {
+      font-size: 1.5rem;
+      color: #444;
+    }
+
+    /*  手机端适配 */
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .tx img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .nav a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+
+      marquee {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a class="music">
-        <audio src="./music/折枝花满衣.mp3" controls autoplay="autoplay"></audio>
-    </a>
-    <div class="thumbnail">
-        <img src="./image/海滩上的海星.jpg" alt="">
-        <div class="tx">
-            <img src="./image/头像.png">
-        </div>
-        <div class="geren">
-            <a href="./个人.html">个</br>人</a>
-        </div>
-        <div class="aihao"">
-            <a href="./爱好.html">爱</br>好</a>
-        </div>
-        <div class="shenghuo">
-            <a href="./格言.html">格</br>言</a>
-        </div>
-        <div class="ouxiang">
-            <a href="./偶像.html">偶</br>像</a>
-        </div>
-        <div class="jiaxiang">
-            <a href="./家乡.html"target="_blank">家</br>乡</a>
-        </div>
+  <!-- 音乐播放器 -->
+  <a class="music">
+    <audio src="./music/折枝花满衣.mp3" controls autoplay></audio>
+  </a>
+
+  <!-- 背景 + 头像 -->
+  <div class="thumbnail">
+    <img src="./image/海滩上的海星.jpg" alt="background" class="bg">
+    <div class="tx">
+      <img src="./image/头像.png" alt="头像">
     </div>
-    <div class="title">
-        <h2 ><marquee scrollamount="12" width="900" behavior="slide">Welcome to my website!</marquee></h2>
-    </div>
+  </div>
+
+  <!-- 导航菜单 -->
+  <div class="nav">
+    <a href="./个人.html">个人</a>
+    <a href="./爱好.html">爱好</a>
+    <a href="./格言.html">格言</a>
+    <a href="./偶像.html">偶像</a>
+    <a href="./家乡.html" target="_blank">家乡</a>
+  </div>
+
+  <!-- 跑马灯标题 -->
+  <div class="title">
+    <h2><marquee scrollamount="8" behavior="slide">Welcome to my website!</marquee></h2>
+  </div>
 </body>
 </html>
