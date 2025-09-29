@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游相册</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: linear-gradient(-225deg, #080808 0%, #000000 48%, #585858 100%);/*颜色渐变*/
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
+
+        .images img {
+            border: #fff solid 10px;
+            max-width: 45vh;
+            max-height: 50vh;
+            transition: .5s;
+        }
+
+        .images:hover img {
+            box-shadow: 0 10px 30px #86c4f7;
+            transform: scale(2);  
+        }
+
+        .shell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vh;
+            transform: rotate(-90deg) translate3d(0, -100vh, 0);
+            transform-origin: right top;
+            overflow-x: hidden;
+            height: 100vw;
+            perspective: 1px;
+            transform-style: preserve-3d;
+        }
+
+        .images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40vh;
+            transform-origin: 50% 50%;
+            transform: rotate(90deg) translateZ(0px) scale(1.1) translateX(0px) translateY(2vh);
+            transition: 1s;
+        }
+    </style>
+    <link rel="stylesheet" href="按钮.css">
+</head>
+
+<body>
+    <div class="position">
+        <a href="welcome.html" class="q">返回首页</a>
+</div>
+<div class="position2">
+    <a href="爱好.html" class="q">上一级</a>
+</div>
+    <div class="shell">
+        <div class="images">
+            <img src="./ydimg/(1).jpg">
+        </div>
+        <div class="images">
+            <img src="./ydimg/(2).jpg">
+        </div>
+        <div class="images">
+            <img src="./ydimg/(3).jpg">
+        </div>
+        <div class="images">
+            <img src="./ydimg/(4).jpg">
+        </div>
+        <div class="images">
+            <img src="./ydimg/(5).jpg">
+        </div>
+    </div>
+</body>
+</html>

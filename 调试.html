@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	ul.nihe-info {
+		background-color: black;
+  width: 100%;
+  height: 40%;
+  list-style: none;
+  font-size: 14px;
+  color: #fff;
+  align-self: flex-start;
+  padding-left: 20px;
+  /* padding-top: 8px; */
+  /* margin-top: -4px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* -webkit-line-clamp: 5; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+ul.nihe-info .zonglan_info_li {
+  -webkit-animation: 18s anim2 linear infinite normal;
+  animation: 18s anim2 linear infinite normal;
+}
+ul.nihe-info .zonglan_info_li:hover {
+  /* 设置动画是否暂停 paused暂停*/
+  animation: 18s anim2 linear infinite paused;
+}
+
+@-webkit-keyframes anim2 {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 120px, 0);
+    transform: translate3d(0, -120px, 0);
+  }
+}
+@keyframes anim2 {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -120px, 0);
+    transform: translate3d(0, -120px, 0);
+  }
+}
+</style>
+<body>
+	<ul class="nihe-info" >
+		<li>
+				  <p>项目名称</p>：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+				  <p>地理位置</p>：位置位置位置位置位置
+					XX是xx北岸支流，总流域面积为<b>556</b>㎡，通过<b>点源治理、面源控制、内源整治、生态修复、水系连通、长效管控</b>等多重综合治理措施，使xx总体水环境质量得到有效提升，最终实现“<b>通、活、净、美、可控</b>”的流域水环境综合目标。
+		 </li>
+   </ul>
+  
+</body>
+</html>

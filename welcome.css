@@ -1,0 +1,118 @@
+
+.thumbnail {
+    position: absolute;
+    display: inline-block;
+    }
+.tx{
+    position: absolute;
+    transform: translate( -50%, -50% );
+    left: 67.5%;
+    top: 53%;
+    animation: rotate 6s linear infinite;
+    border-radius: 50%;
+    -webkit-user-drag: none;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50%{
+        transform: rotate(180deg) scale(1.7);
+
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+.title{
+    text-align:center;
+    font-family: "华文行楷";
+    font-size: 80px;
+    left: 50%;
+}
+.music{
+    position:absolute;
+    z-index: 2;
+    top: 100%;
+}
+a{
+    text-decoration: none;
+    font-family: "华文行楷";
+    color: black;
+    display: block;
+}
+.geren{
+    position:absolute;
+    font-size: 30px;
+    margin: -45% 70%;
+    width: 100px;
+    height: 150px;
+    text-align: center;
+}
+.geren:hover{
+    font-size: 60px;
+    opacity: 0.5;
+    transition: 0.2s;
+}
+.aihao{
+    font-size: 30px;
+    position: absolute;
+    margin: -35% 59%;
+    width: 100px;
+    height: 150px;
+    text-align: center;
+    z-index: 2;
+    rotate: -70deg;
+}
+.aihao:hover{
+    font-size: 60px;
+    opacity: 0.5;
+    transition: 0.2s;
+}
+.shenghuo{
+    font-size: 30px;
+    position: absolute;
+    margin: -38% 82%;
+    width: 100px;
+    height: 150px;
+    text-align: center;
+    z-index: 2;
+    rotate: 70deg;
+}
+.shenghuo:hover{
+    font-size: 60px;
+    opacity: 0.5;
+    transition: 0.2s;
+}
+.ouxiang{
+    font-size: 30px;
+    position: absolute;
+    margin: -20% 77%;
+    width: 100px;
+    height: 150px;
+    text-align: center;
+    z-index: 2;
+    rotate: -30deg;
+}
+.ouxiang:hover{
+    margin: -23% 76%;
+    font-size: 60px;
+    opacity: 0.5;
+    transition: 0.2s;
+}
+.jiaxiang{
+    font-size: 30px;
+    position: absolute;
+    margin: -20% 62%;
+    width: 100px;
+    height: 150px;
+    text-align: center;
+    z-index: 2;
+    rotate: 30deg;
+}
+.jiaxiang:hover{
+    margin: -23% 64%;
+    font-size: 60px;
+    opacity: 0.5;
+    transition: 0.2s;
+}
