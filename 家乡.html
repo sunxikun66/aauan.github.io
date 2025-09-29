@@ -1,56 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="家乡.css">
-	<link rel="stylesheet" href="按钮.css">
-	<style>
-		*{
-			padding: 0%;
-			margin: 0%;
-		}
-		img{
-			height: 100%;
-		}
-		.p{
-			position: absolute;
-		}
-        a{
-            color:white;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家乡</title>
+    <link rel="stylesheet" href="按钮.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
-	</style>
+        body {
+            font-family: "楷体", sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .position {
+            padding: 10px;
+        }
+
+        a.q {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 5px;
+        }
+
+        a.q:hover {
+            background-color: rgba(255,204,0,0.8);
+            color: #000;
+        }
+
+        /* 背景大图 */
+        .background-img {
+            width: 100%;
+            max-height: 60vh;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* 图片列表网格布局 */
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 10px 40px 10px;
+            list-style: none;
+        }
+
+        .box li {
+            position: relative;
+            width: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255,204,0,0.6);
+        }
+
+        .box li img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .box li .text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            color: #ffcc00;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .box li {
+                width: 45%;
+            }
+
+            .box li img {
+                height: 150px;
+            }
+
+            .box li .text {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box li {
+                width: 100%;
+            }
+
+            .box li img {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="position">
         <a href="welcome.html" class="q">返回首页</a>
-</div>
-	<div class="p">
-		<img src="./image/这是小麦在天空中生长的特写.jpg">
-	</div>
-	<ul class="box">
-		<li>
-		  <a href="https://baike.baidu.com/item/%E5%B1%B1%E4%B8%9C%E7%9C%81/209822?fr=aladdin" target="_blank"><img src="./image/好客山东.jpg"></a>
-		  <div class="text">好客山东</div>
-		</li>  
-		<li>
-			<a href="https://baike.baidu.com/item/%E9%9D%92%E5%B2%9B%E5%B8%82/785198?fr=aladdin"target="_blank"><img src="./image/青岛.jpg" alt=""></a>
-		  <div class="text">宜居青岛</div>
-		</li>
-		<li>
-			<a href="https://baike.baidu.com/item/%E5%B9%B3%E5%BA%A6%E5%B8%82/6834320?fr=aladdin"target="_blank"><img src="./image/平度.jpeg" alt=""></a>
-		  <div class="text">大美平度</div>
-		</li>    
-		<li>
-			<a href="https://baike.baidu.com/item/%E4%BA%91%E5%B1%B1%E9%95%87/32970?fr=aladdin"target="_blank"><img src="./image/云山.jpeg" alt=""></a>
-		  <div class="text">多产云山</div>
-		</li>  
-		<li>
-			<a href="https://baike.baidu.com/link?url=0zUClAmIvzdYoWGMyrd-78iuyQHefbGBJrHXcqQ6uAahseJAsDVe79Facyt-g8CL7FN8Df6yEc1MCxGRs2zI0ATEUTUQUVW8jZHep8tdIl42D36NWrdtsyNa3P_CTBROe35uuBXVndgeXwl5XEht5JdAxb0_V9ImIP8rjezkUwD2V1jSKQrha4XE2Z6EpKPX"target="_blank"><img src="./image/一中.jpeg" alt=""></a>
-		  <div class="text">母校一中</div>
-		</li>  
-	  </ul> 
+    </div>
+
+    <!-- 背景大图 -->
+    <img src="./image/这是小麦在天空中生长的特写.jpg" alt="家乡风景" class="background-img">
+
+    <!-- 网格图片列表 -->
+    <ul class="box">
+        <li>
+            <a href="https://baike.baidu.com/item/%E5%B1%B1%E4%B8%9C%E7%9C%81/209822?fr=aladdin" target="_blank">
+                <img src="./image/好客山东.jpg" alt="好客山东">
+            </a>
+            <div class="text">好客山东</div>
+        </li>  
+        <li>
+            <a href="https://baike.baidu.com/item/%E9%9D%92%E5%B2%9B%E5%B8%82/785198?fr=aladdin" target="_blank">
+                <img src="./image/青岛.jpg" alt="宜居青岛">
+            </a>
+            <div class="text">宜居青岛</div>
+        </li>
+        <li>
+            <a href="https://baike.baidu.com/item/%E5%B9%B3%E5%BA%A6%E5%B8%82/6834320?fr=aladdin" target="_blank">
+                <img src="./image/平度.jpeg" alt="大美平度">
+            </a>
+            <div class="text">大美平度</div>
+        </li>    
+        <li>
+            <a href="https://baike.baidu.com/item/%E4%BA%91%E5%B1%B1%E9%95%87/32970?fr=aladdin" target="_blank">
+                <img src="./image/云山.jpeg" alt="多产云山">
+            </a>
+            <div class="text">多产云山</div>
+        </li>  
+        <li>
+            <a href="https://baike.baidu.com/link?url=0zUClAmIvzdYoWGMyrd-78iuyQHefbGBJrHXcqQ6uAahseJAsDVe79Facyt-g8CL7FN8Df6yEc1MCxGRs2zI0ATEUTUQUVW8jZHep8tdIl42D36NWrdtsyNa3P_CTBROe35uuBXVndgeXwl5XEht5JdAxb0_V9ImIP8rjezkUwD2V1jSKQrha4XE2Z6EpKPX" target="_blank">
+                <img src="./image/一中.jpeg" alt="母校一中">
+            </a>
+            <div class="text">母校一中</div>
+        </li>  
+    </ul> 
 </body>
 </html>
