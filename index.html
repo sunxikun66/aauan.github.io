@@ -11,100 +11,93 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden; /* 防止横向白边 */
       font-family: Arial, sans-serif;
-      text-align: center;
-      background: #f9f9f9;
-      color: #333;
+      color: #fff;
     }
 
-    h2 {
-      text-shadow: 2px 3px 3px white;
-      font-size: 2rem;
-      margin: 15px 0;
+    body {
+      /* 全屏背景图 */
+      background: url("./image/海滩上的海星.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
 
+    /* 音乐播放器 */
     .music {
-      display: block;
-      margin: 10px auto;
-    }
-
-    /* 背景区域 */
-    .thumbnail {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .thumbnail img.bg {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
+      margin-top: 10px;
     }
 
     /* 头像 */
     .tx {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
+      margin: 20px 0;
     }
 
     .tx img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      border: 3px solid white;
+      border: 3px solid rgba(255,255,255,0.9);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     /* 导航按钮区域 */
     .nav {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 15px;
-      margin-top: 20px;
+      margin: 20px 0;
+      max-width: 90%;
     }
 
     .nav a {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 10px 14px;
-      border-radius: 10px;
+      flex: 1 1 100px; /* 自适应宽度，最小100px */
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 12px 18px;
+      border-radius: 12px;
       text-decoration: none;
-      color: #333;
+      color: #fff;
       font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 1.1rem;
+      backdrop-filter: blur(4px); /* 毛玻璃效果 */
       transition: all 0.3s ease;
     }
 
     .nav a:hover {
-      background: #eee;
+      background: rgba(255, 255, 255, 0.4);
       transform: scale(1.05);
     }
 
-    /* 标题区域 */
+    /* 跑马灯标题 */
     .title {
-      margin: 20px 0;
+      margin: 30px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-shadow: 2px 3px 6px rgba(0,0,0,0.5);
     }
 
     marquee {
-      font-size: 1.5rem;
-      color: #444;
+      font-size: 1.6rem;
+      color: #fff;
     }
 
-    /*  手机端适配 */
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 1.3rem;
-      }
-
+    /* 📱 手机端适配 */
+    @media (max-width: 768px) {
       .tx img {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
       }
 
       .nav {
@@ -112,28 +105,41 @@
       }
 
       .nav a {
+        font-size: 1rem;
+        padding: 10px 14px;
+      }
+
+      marquee {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tx img {
+        width: 65px;
+        height: 65px;
+      }
+
+      .nav a {
         font-size: 0.9rem;
         padding: 8px 12px;
       }
 
-      marquee {
-        font-size: 1rem;
+      h2 {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
   <!-- 音乐播放器 -->
-  <a class="music">
+  <div class="music">
     <audio src="./music/折枝花满衣.mp3" controls autoplay></audio>
-  </a>
+  </div>
 
-  <!-- 背景 + 头像 -->
-  <div class="thumbnail">
-    <img src="./image/海滩上的海星.jpg" alt="background" class="bg">
-    <div class="tx">
-      <img src="./image/头像.png" alt="头像">
-    </div>
+  <!-- 头像 -->
+  <div class="tx">
+    <img src="./image/头像.png" alt="头像">
   </div>
 
   <!-- 导航菜单 -->
